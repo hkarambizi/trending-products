@@ -18,7 +18,7 @@ To complete this challenge, please build a functional website with frontend & ba
    - Feel free to use any database technology (Sqlite, MongoDb, Redis) you'd like
    - We want to see how you choose to model the data based on the requirements
 
-You may use any technology stack to solve this challenge, but we have provided application boilerplate and a docker configuration to quick start your dev environment should you choose to use it: [Code Challenge Starting Template](www.example.com)
+> Note: You may use any technology stack to solve this challenge
 
 Additionally, please seek to fit your UI as close as possible to the provided mocks: [Code Challenge Mocks](https://www.figma.com/file/kYoGXQa5CNkCALUmRfB79B/Snackpass-Full-Stack-Code-Challenge?node-id=1%3A21)
 > Note: These mocks include some UI elements beyond the 3 requirements outlined above. Consider these good stretch goals to reach for as time allows!
