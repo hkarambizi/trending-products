@@ -1,0 +1,25 @@
+{
+  "name": "snackpass-interview-trending-products",
+  "version": "1.0.0",
+  "description": "Interview exercise to make a page of trending products ordered from nearby restaurants",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snackpass-interviews/Harry-Karambizi.git"
+  },
+  "keywords": [
+    "snackpass",
+    "products",
+    "orders",
+    "trending"
+  ],
+  "author": "Harry Karambizi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snackpass-interviews/Harry-Karambizi/issues"
+  },
+  "homepage": "https://github.com/snackpass-interviews/Harry-Karambizi#readme"
+}
