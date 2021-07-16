@@ -4,7 +4,8 @@
   "description": "Interview exercise to make a page of trending products ordered from nearby restaurants",
   "main": "server.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run test",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/snackpass-interviews/Harry-Karambizi/issues"
   },
-  "homepage": "https://github.com/snackpass-interviews/Harry-Karambizi#readme"
+  "homepage": "https://github.com/snackpass-interviews/Harry-Karambizi#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
