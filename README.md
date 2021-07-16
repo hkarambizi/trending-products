@@ -12,7 +12,7 @@ To complete this challenge, please build a functional website with frontend & ba
    - Each item in the list should be visibly tagged with two attributes:
       * a recent purchase tag, ie: `5 purchased recently`
       * a time tag, ie: `ordered 3 min ago`
-2. The trending products list should be sorted by a heuristic based on at least purchase recency & the number of recent purchases. 
+2. The trending products list should be sorted by a heuristic based on at least purchase recency & the number of recent purchases.
    - There is no "right" answer here; we'd like to see your reasoning for any heuristic you choose!
 3. Persists data for the above in a database
    - Feel free to use any database technology (Sqlite, MongoDb, Redis) you'd like
@@ -31,7 +31,7 @@ Additionally, please seek to fit your UI as close as possible to the provided mo
 3. Please submit within 72 hours from the time you accept invitation. (If circumstances don't allow for this, please let us know early!)
 
 ## Practices
-### Quality of code 
+### Quality of code
  Please use best practices for writing code and publish to this repo. We want to see how you _really_ code when shipping to production - please use good formatting, in-code documentation, and performant code patterns as much as possible.
 ### Q & A
  1. Please create an issue and tag @shrimuthu, @aduca98, @nprbst or @seankwalker for questions or review.
@@ -44,9 +44,35 @@ For sample data, you may use [Sample Orders](https://docs.google.com/spreadsheet
 ## Solution
 _Your solution content goes here..._
 
-Please provide an explaination on 
+Please provide an explaination on
 1. How you solved the problem
-2. How to setup 
+2. How to setup
 3. How to run it
 
 You can be as verbose as you like!
+
+---
+Project Overview
+---
+The steps I will take to build this application:
+
+Backend:
+1. Set up an express server with routes that will serve product and order data to the front end. This will be the API
+
+2. Set up a database with MongoDB. I will create two tables: Orders and Products
+
+3. Use provided sample data as JSON and seed my db with it
+
+4. Build a route for /trending that takes query params to control sorting mechanics
+
+Frontend:
+1.
+
+---
+Steps to Develop:
+---
+
+#### Building a Server
+
+* I am going to use an express server to serve up the products list to the page. This backend will be accessible at port 5000.
+
