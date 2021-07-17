@@ -26,16 +26,16 @@ const clearDB = async (cb) => {
 };
 
 // custom module for getting dates
-const randomDateSinceTwentyYears = new DateGenerator({
+const randomDateOffset = new DateGenerator({
     past: true,
     random: true,
-    years: 20, // Spread over 20 years because there are 119k records
+    years: 2, // Spread over years because there are 119k records
 });
 // find product orders
 const matchingItems = (order, name) => order.itemName == name;
-const lastYearsDate = new DateGenerator({past: true, years: 1}).generate();
-// Only save items ordered within the year
-const filterByDate = (item) => item.createdAt > lastYearsDate;
+const past48Hours = new DateGenerator({past: true, days: 2}).generate()
+// Only save items ordered within the past 48 hours
+const filterByDate = (item) => item.createdAt > past48Hours;
 // Keep the newest order at first index
 const sortByMostRecent = (a, b) => a + b;
 // Filters matching item orders for a Product and sorts them by most recent
@@ -70,7 +70,7 @@ const createItem = ({ itemName, orderID, quantity }) => {
         name: itemName,
         orderID,
         quantity,
-        createdAt: randomDateSinceTwentyYears.generate()
+        createdAt: randomDateOffset.generate()
     });
 };
 
@@ -91,8 +91,11 @@ const createSeedData = async () => {
                     const product = await createProduct(o);
                     if (productOrderItems.length > 0) {
                         logger.db(`Saving ${productOrderItems.length} item orders of ${product.itemName} into Product`);
-                        await productOrderItems.forEach(item => item.save()); // Save each item order
-                        await product.orders.push(productOrderItems); // add items to Product.orders
+                        await productOrderItems.forEach(item => {
+                            product.orders.push(item)
+                            return item.save()
+                        }); // Save each item order
+                         // add items to Product.orders
                     }
                     await product.save()
                         .then(
