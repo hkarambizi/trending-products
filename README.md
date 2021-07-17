@@ -44,7 +44,7 @@ For sample data, you may use [Sample Orders](https://docs.google.com/spreadsheet
 ## Solution
 _Your solution content goes here..._
 
-Please provide an explaination on
+Please provide an explanation on
 1. How you solved the problem
 2. How to setup
 3. How to run it
@@ -59,7 +59,10 @@ The steps I will take to build this application:
 Backend:
 1. Set up an express server with routes that will serve product and order data to the front end. This will be the API
 
-2. Set up a database with MongoDB. I will create two tables: Orders and Products
+2. Set up a database with MongoDB. I will create three schema:
+* Items - the representation of an product included in an order
+* Products - the specific item details. Products will contain a field of "orders" will be of type Item
+* Orders - the order details including all items
 
 3. Use provided sample data as JSON and seed my db with it
 
