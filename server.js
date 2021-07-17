@@ -1,5 +1,6 @@
 const express = require('express');
 require('dotenv').config() // access environment variables
+const logger = require('./utils/logger')(__filename);
 const dbConnect = require('./db');
 // connect to database
 dbConnect();
@@ -14,5 +15,5 @@ app.get('/api/docs', (req, res)=> {
 
 // start server
 app.listen(port, ()=>{
-    console.log('🍬 🍪 🌮  Snackpass API is live on port 5000!')
+    logger.log('🍬 🍪 🌮  Snackpass API is live on port 5000!')
 })

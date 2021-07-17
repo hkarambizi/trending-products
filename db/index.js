@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const logger = require('./../utils/logger')(__dirname);
 require('dotenv').config() // access environment variables
 // When deployed, the NODE_ENV will be set
 const isLocal = !(process.env.NODE_ENV === "staging" || process.env.NODE_ENV === "production");
@@ -12,11 +13,12 @@ const dbConnect = () => {
     // Listen for DB connection events
     const db = mongoose.connection;
     db.once('open', () => {
-        console.log(`✅  Database connected at: ${url}`)
+        logger.success(`Database connected at: ${url}`)
     })
     db.on('error', err => {
-        console.error("⚠️  Database connection error: ", err)
+        logger.error("Database connection error:", err)
     })
+    return db;
 }
 
 module.exports = dbConnect;
