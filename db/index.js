@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const logger = require('./../utils/logger')(__dirname);
-require('dotenv').config() // access environment variables
+
 // When deployed, the NODE_ENV will be set
 const isLocal = !(process.env.NODE_ENV === "staging" || process.env.NODE_ENV === "production");
 // MONGODB_URI will point to Atlas Cloud URI or local db url

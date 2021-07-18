@@ -29,7 +29,7 @@ const clearDB = async (cb) => {
 const randomDateOffset = new DateGenerator({
     past: true,
     random: true,
-    years: 2, // Spread over years because there are 119k records
+    years: 1, // Spread over years because there are 119k records
 });
 // find product orders
 const matchingItems = (order, name) => order.itemName == name;
@@ -37,7 +37,7 @@ const past48Hours = new DateGenerator({past: true, days: 2}).generate()
 // Only save items ordered within the past 48 hours
 const filterByDate = (item) => item.createdAt > past48Hours;
 // Keep the newest order at first index
-const sortByMostRecent = (a, b) => a + b;
+const sortByMostRecent = (a, b) => b.createdAt - a.createdAt;
 // Filters matching item orders for a Product and sorts them by most recent
 const getItemsForProduct = (name, orders) =>
     orders
