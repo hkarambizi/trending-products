@@ -89,13 +89,18 @@ const createSeedData = async () => {
                 if (!productCache[o.itemName]) {
                     const productOrderItems = await getItemsForProduct(o.itemName, orders);
                     const product = await createProduct(o);
+                    product.orderCount = 0;
                     if (productOrderItems.length > 0) {
                         logger.db(`Saving ${productOrderItems.length} item orders of ${product.itemName} into Product`);
                         await productOrderItems.forEach(item => {
+                            // add items to Product.orders
                             product.orders.push(item)
+                            // Save each item order
                             return item.save()
-                        }); // Save each item order
-                         // add items to Product.orders
+                        });
+                        // Need Solution: workarounds for getting the most recent purchase and order count for db Query
+                        product.lastOrderedAt = product.orders[0].createdAt;
+                        product.orderCount = product.orders.length;
                     }
                     await product.save()
                         .then(
