@@ -2,6 +2,7 @@ import { FaSearch, FaRegHeart, FaRegClock } from "react-icons/fa";
 import { HiChartBar } from "react-icons/hi";
 import { BiUserCircle } from "react-icons/bi";
 import NavBar from './components/NavBar';
+import SearchBar from './components/SearchBar';
 import "./App.scss";
 
 function App() {
@@ -12,19 +13,7 @@ function App() {
 
       {/* START OF app */}
       <div className="app">
-
-        {/* START SEARCH CONTAINER */}
-        <div className="search-container">
-          <div className="search-group">
-            <FaSearch className="search-icon left"></FaSearch>
-            <input
-              type="text"
-              className="search"
-              placeholder="Search"
-            />
-          </div>
-        </div>
-        {/* END SEARCH CONTAINER */}
+        <SearchBar/>
 
         {/* START SelectRow - Most Popular */}
         <div className="sort-select-row">
