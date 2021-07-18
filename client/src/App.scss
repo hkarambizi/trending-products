@@ -1,42 +1,189 @@
-@import url('https://fonts.googleapis.com/css2?family=Questrial&family=Sniglet&display=swap');
-* {
-    font-family: 'Questrial';
+@import url("https://fonts.googleapis.com/css2?family=Questrial&family=Sniglet&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;800;900&family=Rubik:wght@400;500&display=swap');
+
+$app-bg-color: #ffffff;
+$secondary-bg-color: #f9fafb;
+$pill-bg-color: #ebedf0;
+$pill-radius: 1.5em;
+$primary-font-color: #3e4347;
+$opaque-font-color: #878f99;
+$discount-font-color: #00cc44;
+$title-border: #2fc3ff;
+$border: .5px solid #878f994a;
+$card-radius: 1em;
+body, button, select {
+    font-family: "Rubik";
 }
+.title {
+    color:white;
+    font-weight: 900;
+    text-shadow: 2px 3px 1px $title-border, 2px 3px 2px $title-border, 0px 4px 1px $title-border, -1px 4px 2px $title-border, 0px 4px 0px $title-border, 0px 3px 2px $title-border, -1px 2px 2px $title-border, -1px -2px 1px $title-border, -1px 2px 1px $title-border, 1px -2px 1px $title-border, -1px 2px 1px $title-border, -2px 1px 2px $title-border, -2px 0px 1px $title-border, 3px -1px 3px $title-border
+}
+p {
+    font-size: .75em;
+    line-height: 18px;
+}
+
 .App {
+    background-color: $app-bg-color;
+}
+.app {
+    min-height: 100vh;
+    margin-top: 3rem;
+    background: $secondary-bg-color;
+}
+
+.nav {
+    border-bottom: 0.5px solid #878f994a;
+    min-height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background: white;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    padding: 0 1rem;
+}
+
+
+@mixin debug-border($color:red, $style: solid) {
+    border: 1px $style $color
+}
+
+@mixin pill {
+    color: #43484d;
+    background-color: $pill-bg-color;
+    border: none;
+    border-radius: $pill-radius;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+@mixin bottom-border {
+    border-bottom: $border;
+}
+@mixin icon {
+        margin-right: 4px;
+}
+@mixin container {
+    padding: 0 1rem;
+}
+.nav-faves {
+    .my-faves {
+        @include pill;
+        padding: .5em;
+        .icon {
+            @include icon;
+        }
+        };
+}
+.search-container {
     text-align: center;
+    @include container;
 }
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.sort-select-row {
+    font-size: 1.2rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+.sort-select-container {
+   display: flex;
+}
+.select-sort {
+    display: flex;
+    padding: 1rem;
+    color: $primary-font-color;
+    #sort-query {
+    color: $primary-font-color;
+    font-size: .75em;
+    font-weight: 500;
+    background: none;
+    -webkit-appearance: none;
+    }
+    .icon {
+        @include icon;
     }
 }
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
+.search-group {
+    position: relative;
+    padding: 1rem 0;
+}
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 25px;
+}
+.search {
+    background: $pill-bg-color;
+    font-size: 1em;
+    padding: .5em 2em;
+    // display: block;
+    width: 100%;
+    @include pill;
+}
+#sort-query {
+    border: none;
+}
+.product-card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    min-height: 100vh;
+    background-color: $secondary-bg-color;
 }
 
-.App-link {
-    color: #61dafb;
+.trending-item-row {
+    width: 100%;
+    margin-top: 1rem;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
+.trending-item-card {
+    padding: 1rem;
+    width: 90%;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: $card-radius;
+    -webkit-box-shadow: 0px 2px 7px -1px rgba(224,224,224,0.38), 0px 3px 14px -1px rgba(224,224,224,0.26);
+box-shadow: 0px 2px 7px -1px rgba(224,224,224,0.38), 0px 3px 14px -1px rgba(224,224,224,0.26);
+}
+.product-card-header-row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.card-row {
+    padding-top: .25em;
+    &.restaurant-details-row {
+        color: $opaque-font-color;
     }
-    to {
-        transform: rotate(360deg);
+}
+.pricing-details-row {
+    display: flex;
+    p {
+        padding: 0 .1rem;
+    }
+}
+.meta-data-row {
+    display: flex;
+    padding-top: 5px;
+
+}
+
+.pill {
+    @include pill;
+    & + .pill {
+        margin-left: .5rem;
+    }
+}
+.metadata-pill {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 0 8px;
+    .icon {
+        @include icon;
+        width: 12px;
+        height: 12px;
     }
 }
