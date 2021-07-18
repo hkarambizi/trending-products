@@ -1,27 +1,14 @@
-import { FaHeart, FaSearch, FaRegHeart, FaRegClock } from "react-icons/fa";
+import { FaSearch, FaRegHeart, FaRegClock } from "react-icons/fa";
 import { HiChartBar } from "react-icons/hi";
 import { BiUserCircle } from "react-icons/bi";
+import NavBar from './components/NavBar';
 import "./App.scss";
 
 function App() {
   return (
-    // START OF APP
     <div className="App">
-      {/* START of nav */}
-      <div className="nav">
-        <div className="page-title">
-          <h1 className="title">trending</h1>
-        </div>
-        <div className="nav-faves">
-          <button className="my-faves">
+      <NavBar/>
 
-            <FaHeart className="my-fave icon left"></FaHeart>
-
-            My Faves
-          </button>
-        </div>
-      </div>
-      {/* END of nav */}
 
       {/* START OF app */}
       <div className="app">
