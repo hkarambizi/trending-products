@@ -22,6 +22,15 @@ app.get(`${apiVersionNamespace}/docs`, (req, res)=> {
     res.send(`You have reached the SnackPass API ${apiVersion} documentation`)
 })
 
+// fpr deploying to Heroku
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+  }
 // start server
 app.listen(port, ()=>{
     logger.log('🍬 🍪 🌮  Snackpass API is live on port 5000!')
