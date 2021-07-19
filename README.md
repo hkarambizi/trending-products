@@ -69,13 +69,38 @@ Backend:
 4. Build a route for /trending that takes query params to control sorting mechanics
 
 Frontend:
-1.
+
+1. Use Create React To App to bootstrap a React front end.
+2. Build the Trending Products page according to the spec in the prompt
+3. Use React hooks triggered by handlers to fetch the data from the API and feed the data to the front end components
+
+
+#### Deployment
+
+**NOTE**: This is where I left the project. The deployed app can be seen at [Harry-Is-Trending-At-Snackpass.herokuapp.com](https://harry-is-trending-at-snackpass.herokuapp.com/)
+
 
 ---
-Steps to Develop:
+Solution:
 ---
 
-#### Building a Server
+#### Backend
 
-* I am going to use an express server to serve up the products list to the page. This backend will be accessible at port 5000.
+* Using the Sample Data from Google Sheets became challenging because there were 120,000 records and my sample data had to dynamically be from within a 48 hour window. I resolved to make the the date range much wider when retrieving the sample data and only saving data which fell within the past year. I then only query data within a 2 day window. I ended up not creating 3 collections, but rather using only 1 collection, but transforming the data before saving. The code for this is in `db/seeds.js`
+
+* As I wanted to keep most of the business logic on the backend, it presented a challenge because when you paginate queries from the db, you lose the ability to do a global sort and filter. I had to limit my results returned from the database even more to come up with realistic data. You can find my logic for this in `controllers/product-controller.js`
+* I used my own custom helper library `DateGenerator` to randomize and create dates for the sample data. You can find this in `utils/date-generator.js`
+* I created a fun logging utility that prints out helpful, fun messages while developing. It also gives context to where the message, or error is coming from. This can be found in `utils/logger.js`
+
+#### Frontend
+
+* I used `create-react-app` as planned to build the frontend. Unfortunately, time was limited as I spent most of my time looking for means to query data in the cleanest and most performant manner. I had to make some concessions on the frontend.
+* I did not have an account with Figma, and did not realize that the mocks sent over came with clear styling attributes. The front end I built was primarily from hand-measuring, searching through Google Fonts for something similar, and using a color sync utility to capture as much as I could. Things I got right: Title font is "Nunito", and the primary text font was a hex code match! I actually went with a lighter color, because it looked darker in the browser. The creation of my custom title was done by using 30 text shadows to resemble an outline. This was the better of the two solutions presented on StackOverflow
+* I planned to build out all the individual components and modularalize the styles with styled-components or simply, importing individual `.scss` files. I only did a few simple ones: `Button.jsx`, `Title.jsx`, `SearchBar.jsx`, and `SortSelect.jsx`. My plan was to incrementally turned the small UI pieces into components until I went up the tree.
+
+
+#### To-do:
+
+* Search, Favorite -  I was setting up local state with hooks in the App.js component. My plan is to create handlers and pass them into the components through the next level component. This is a cumbersome process and its not scalable for larger applications, but the data and the size of the application allows for it. Alternatively, I could use the Context API or even set up a couple actions and a reducer in a single Redux Slice
+* Loading State and Pagination - When starting the app, it takes a half second the data to be loaded. I am going to implement a simple ternary operator for the `Trending.js` component to check the value of `isLoading`. This is what I call my main container in this application. It is the component I would pass in my '/' route. Currently, there is not __true__ infinite scroll. My plan was to mimic the behavior of fetching more data on the front end, but just trigger a call to get another page of products from the local state. I would also like to 'Pull-to-Refresh' so that the representation of the time elapsed on the trending products would update.
 
