@@ -1,12 +1,18 @@
 {
   "name": "snackpass-interview-trending-products",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
+  },
   "description": "Interview exercise to make a page of trending products ordered from nearby restaurants",
   "main": "server.js",
   "scripts": {
     "test": "npm run test",
-    "dev": "nodemon server.js",
-    "db:seed": "node db/seeds.js"
+    "start": "nodemon server.js",
+    "db:seed": "node db/seeds.js",
+    "client": "cd client && yarn start",
+    "dev": "concurrently --kill-others \"npm start\" \"npm run client\"",
+    "heroku-postbuild": "cd client && yarn && yarn build && npm run ../db/seeds.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +40,7 @@
     "mongoose": "^5.13.3"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "nodemon": "^2.0.12"
   }
 }
