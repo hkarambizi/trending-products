@@ -12,7 +12,7 @@
     "db:seed": "node db/seeds.js",
     "client": "cd client && yarn start",
     "dev": "concurrently --kill-others \"npm start\" \"npm run client\"",
-    "heroku-postbuild": "cd client && yarn && yarn build && npm run ../db/seeds.js"
+    "heroku-postbuild": "npm run db/seeds.js && cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",
