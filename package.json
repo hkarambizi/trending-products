@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "test": "npm run test",
-    "setup": "npm install && cd client && yarn install && cd .. && npm run dev",
+    "setup": "npm install && cd client && yarn install && cd .. && npm run db:seed",
     "start:safe": "node server.js",
     "start": "nodemon server.js",
     "db:seed": "node db/seeds.js",
