@@ -9,7 +9,7 @@ const app = express();
 express.Router()
 const port = process.env.PORT || 5000;
 const apiVersion = process.env.API_VERSION || 'v1';
-const apiVersionNamespace = `/api/${}`;
+const apiVersionNamespace = `/api/${apiVersion}`;
 
 // import routes
 const productsRouter = require('./routes/product-routes');
