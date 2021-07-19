@@ -1,33 +1,19 @@
-import { FaSearch, FaRegHeart, FaRegClock } from "react-icons/fa";
+import { FaRegHeart, FaRegClock } from "react-icons/fa";
 import { HiChartBar } from "react-icons/hi";
 import { BiUserCircle } from "react-icons/bi";
 import NavBar from './components/NavBar';
 import SearchBar from './components/SearchBar';
+import SortSelect from './components/SortSelect';
 import "./App.scss";
-
+const sortOptions = ['popularity', 'recent'];
 function App() {
   return (
     <div className="App">
       <NavBar/>
 
-
-      {/* START OF app */}
       <div className="app">
         <SearchBar/>
-
-        {/* START SelectRow - Most Popular */}
-        <div className="sort-select-row">
-          <div className="select-sort">
-            <HiChartBar className="icon"></HiChartBar>
-            <select name="sort-query" id="sort-query">
-              <option value="popularity" defaultValue>
-                Most Popular
-              </option>
-              <option value="recent">Recently Ordered</option>
-            </select>
-          </div>
-        </div>
-        {/* END SelectRow - Most Popular */}
+        <SortSelect options={sortOptions} default="popularity"/>
 
         {/* START PRODUCT CONTAINER */}
         <div className="product-card-container">
