@@ -1,3 +1,6 @@
+// path is not defined
+const path =require('path');
+
 const express = require('express');
 require('dotenv').config() // access environment variables
 const logger = require('./utils/logger')(__filename);
