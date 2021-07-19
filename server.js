@@ -8,7 +8,8 @@ dbConnect();
 const app = express();
 express.Router()
 const port = process.env.PORT || 5000;
-const apiVersionNamespace = `/api/${process.env.API_VERSION}`;
+const apiVersion = process.env.API_VERSION || 'v1';
+const apiVersionNamespace = `/api/${}`;
 
 // import routes
 const productsRouter = require('./routes/product-routes');
@@ -18,7 +19,7 @@ app.use(`${apiVersionNamespace}/products`, productsRouter);
 
 // Route to see API docs
 app.get(`${apiVersionNamespace}/docs`, (req, res)=> {
-    res.send(`You have reached the SnackPass API ${process.env.API_VERSION} documentation`)
+    res.send(`You have reached the SnackPass API ${apiVersion} documentation`)
 })
 
 // start server
