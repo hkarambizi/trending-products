@@ -13,7 +13,7 @@ import "./App.scss";
 const sortOptions = ['popularity', 'recent'];
 function App() {
   const [faves, setFaves] = useState({});
-  const [faveResults, setFaveResults] = useState([]);
+  const [filterStatus, setFilterStatus] = useState(false);
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState('')
   const [filterFn, setFilterFn] = useState([returnBoolean(true)])
@@ -31,10 +31,11 @@ useEffect(() => {
 }, [sortBy]);
 
 useEffect(()=> {
+
   setFilteredProducts(()=>{
     return Array.prototype.filter.apply(products, filterFn)
   })
-},[filterFn])
+},[filterFn, products,filterStatus])
 
 
 
@@ -43,17 +44,22 @@ const handleSortUpdate = (value) => {
 }
 
 const handleFavorite = (faved, id) => {
-  console.log(id, `${id}faved: =>`, faved)
   if(!faved) return setFaves(prevFaves => {
-    console.log("not faved")
-    let addedFave = {id: id};
-    return {...prevFaves, ...addedFave}
+    let addedFave = {};
+    addedFave[id] = id
+    let newFaveCache = {...prevFaves, ...addedFave}
+    return newFaveCache
   })
   let remainingFaves = _.omit(faves, id);
-  console.log("there are faves to set!")
   setFaves(() => {
     return {...remainingFaves}
   })
+}
+
+const handleFilterFavorites = () => {
+  setFilterFn(()=> {
+    return [showFavorites(faves)];
+   })
 }
 
 const handleSearch = (e) => {
@@ -75,7 +81,7 @@ const returnRandomDiscount = () => {
 const productsList = filteredProducts.length ? filteredProducts : products;
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar favorites={faves} faveFilterHandler={handleFilterFavorites}/>
 
       <div className="app">
         <SearchBar handleSearch={handleSearch}/>

@@ -4,8 +4,8 @@ import '../App.scss';
 
 const CardHeader = ({itemName, faves, id, handleClick}) => {
     const faved = !!faves[id];
-    const emptyHeartClassName = faved ? "inactive icon" : "active con";
-    const filledHeartClassName = faved ? "active icon" : "inactive icon";
+    const emptyHeartClassName = faved ? "inactive-empty fave-icon" : "active-empty fave-icon";
+    const filledHeartClassName = faved ? "active-fave fave-icon" : "inactive-fave fave-icon";
 
     return (
         <div className="product-card-header-row">

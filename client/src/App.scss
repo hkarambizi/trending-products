@@ -75,8 +75,15 @@ p {
     .my-faves {
         @include pill;
         padding: .5em;
+        color: $opaque-font-color;
+        &.filter-active {
+            color:$primary-font-color;
+        }
         .icon {
             @include icon;
+            &.active {
+            color: $title-border;
+            }
         }
         };
 }
@@ -193,3 +200,16 @@ box-shadow: 0px 2px 7px -1px rgba(224,224,224,0.38), 0px 3px 14px -1px rgba(224,
         height: 12px;
     }
 }
+.fave-icon {
+    color: $title-border;
+}
+.active-fave {
+    transform: scale(1.2);
+    transition: all 2s ease-in;
+}
+.inactive-fave, .inactive-empty {
+    display: none;
+    transform: scale(.1);
+    transition: all 2s ease-in;
+}
+
