@@ -24,7 +24,7 @@ const SortSelect = ({options, isDefault, handleSelect}) => {
         <div className="sort-select-row">
           <div className="select-sort">
             <HiChartBar className="icon"></HiChartBar>
-            <select name="sort-query" id="sort-query" onChange={(e)=> handleChange(e)}>
+            <select name="sort-query" id="sort-query" onChange={handleChange}>
             {options.map((q) => {
                 return isDefault === true ?  <option key={q} value={q} defaultValue>{getOptionLabel(q)}</option> : <option key={q} value={q}>{getOptionLabel(q)}</option>;
                 })}

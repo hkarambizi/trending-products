@@ -1,10 +1,9 @@
-import React, {useState, useEffect } from 'react'
+import React from 'react'
 import { FaSearch }from 'react-icons/fa'
 import '../App.scss';
 
-const SearchBar = ({}) => {
+const SearchBar = ({handleSearch}) => {
 
-    const [term, setTerm] = useState('');
 
     return(
         <div className="search-container">
@@ -12,6 +11,9 @@ const SearchBar = ({}) => {
             <FaSearch className="search-icon left"></FaSearch>
             <input
               type="text"
+              name="search"
+              id="search"
+              onChange={handleSearch}
               className="search"
               placeholder="Search"
             />
