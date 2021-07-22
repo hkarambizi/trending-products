@@ -1,7 +1,5 @@
-import React, {useState, useEffect} from 'react'
 import { HiChartBar } from 'react-icons/hi'
-import '../App.scss';
-
+const options = ['popularity', 'recent'];
 const getOptionLabel = (value) => {
     let label;
     switch (value) {
@@ -13,7 +11,7 @@ const getOptionLabel = (value) => {
     }
     return label;
 }
-const SortSelect = ({options, isDefault, handleSelect}) => {
+const SortSelect = ({isDefault, handleSelect}) => {
 
     const handleChange = (e) => {
         const {value } = e.target;

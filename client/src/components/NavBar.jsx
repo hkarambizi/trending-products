@@ -1,7 +1,5 @@
-import React from 'react';
 import Button from './Button'
 import Title from './Title'
-import "../App.scss";
 
 const NavBar = ({favorites, faveFilterHandler}) => (
     <div className="nav">
