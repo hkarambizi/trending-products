@@ -1,8 +1,15 @@
+import {
+  BrowserRouter as Router,
+  Route
+} from "react-router-dom";
 import TrendingProducts from './components/TrendingProducts';
 
 function App() {
   return (
-    <TrendingProducts/>
+    <Router>
+      <Route path="/" component={TrendingProducts}/>
+    </Router>
+
   );
 }
 
