@@ -22,22 +22,7 @@ Additionally, please seek to fit your UI as close as possible to the provided mo
 > Note: These mocks include some UI elements beyond the 3 requirements outlined above. Consider these good stretch goals to reach for as time allows!
 
 ## Submission Requirements
-1. Implement a Full-Stack solution including a web server, backend persistence, and associated code.
-   - Please fully implement the items listed under 'The Challenge' above
-   - For any additional push goal items, feel free to mock out the relevant API calls and/or use psuedocode on the frontend to show how you might complete it with more time
-2. Provide a written description of your submission; see [Solution](#Solution) below
-3. Please submit within 72 hours from the time you accept invitation. (If circumstances don't allow for this, please let us know early!)
-
-## Practices
-### Quality of code
- Please use best practices for writing code and publish to this repo. We want to see how you _really_ code when shipping to production - please use good formatting, in-code documentation, and performant code patterns as much as possible.
-### Q & A
- 1. Please create an issue and tag @shrimuthu, @aduca98, @nprbst or @seankwalker for questions or review.
- 2. **When you are ready to submit, please create an issue and tag @BiancaVGreen, @shrimuthu, and @nprbst.**
-### Data
-For sample data, you may use [Sample Orders](https://docs.google.com/spreadsheets/d/1xfAjSlBflehOYj4O7I2YkfcBB1b9VgSHg9X-SmRWmsE/edit#gid=280279953), or generate your own.
-
-> Note: Remember to insert your own random timestamps to fit within 48 hours window.
+**(redacted)**
 
 ## Solution
 _Your solution content goes here..._
