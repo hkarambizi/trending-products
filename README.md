@@ -1,7 +1,5 @@
-![Image of Snackpass](https://www.snackpass.co/static/media/logo_round_2.d74f1dd2.png)
-
-# Snackpass Full Stack Code Challenge
-Welcome to the Snackpass Challenge. We really appreciate you taking the time time to participate!
+# Full Stack Code Challenge
+Welcome to the Coding Challenge. We really appreciate you taking the time time to participate!
 
 ## The Challenge
 Assume the customers around a campus order 5000 orders a day from 50 local restaurants. Each order contains one or multiple products where each product is a food item from that restaurant's menu. For example, one order could be summarized as: `2 burritos, a soda, and a side of chips`.
